@@ -19,3 +19,13 @@
 <h3>Dos and Don'ts of <%= @destination.name %></h3>
 
 <h4>Dos</h4>
+
+<% @destinations.attractions.recommended.each do |attraction| %>
+    <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+<% end %>
+
+<h4>Don'ts</h4>
+
+<% @destinations.attractions.not_recommended.each do |attraction| %>
+    <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+<% end %>

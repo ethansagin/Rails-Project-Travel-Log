@@ -1,21 +1,24 @@
 <h2>Welcome, <%= @user.name %>!</h2>
 
-<div>
-    <h3>Places I Have Visited</h3>
+<% if !@destinations.visited.empty? %>
+    <div>
+        <h3>Places I Have Visited</h3>
 
-    <% @destinations.visited.each do |d| %>
-        <%= link_to d.name, destination_path(d) %> <br>
-    <% end %>
-<div>
+        <% @destinations.visited.each do |d| %>
+            <%= link_to d.name, destination_path(d) %> <br>
+        <% end %>
+    <div>
+<% end %>
 
-<div>
-    <h3>Places I Want To Visit</h3>
+<% if !@destinations.not_visited.empty? %>
+    <div>
+        <h3>Places I Want To Visit</h3>
 
-    <% @destinations.not_visited.each do |d| %>
-        <%= link_to d.name, destination_path(d) %> <br>
-    <% end %> <br>
-<div>
-
+        <% @destinations.not_visited.each do |d| %>
+            <%= link_to d.name, destination_path(d) %> <br>
+        <% end %> <br>
+    <div>
+<% end %>
 
 <%= link_to 'Add Destination', new_destination_path %> <br>
 
