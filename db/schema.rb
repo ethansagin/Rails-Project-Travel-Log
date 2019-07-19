@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_151027) do
+ActiveRecord::Schema.define(version: 2019_07_16_150239) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.integer "last_year_visited", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.boolean "visited"
+    t.integer "year_of_visit"
+    t.boolean "recommend"
+    t.boolean "revisit"
+    t.string "notes"
+    t.integer "user_id"
+    t.integer "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -19,6 +39,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_151027) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "provider"

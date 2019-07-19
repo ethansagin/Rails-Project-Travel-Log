@@ -1,0 +1,26 @@
+<%= form_for [user, destination], :url => destinations_path do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+
+    <%= f.fields_for :country, destination.country do |c| %>
+        <%= c.label :name, 'Country Name' %>
+        <%= c.text_field :name %> <br>
+    <% end %>
+        
+    <%= f.label :visited, 'Visited?' %>
+    <%= f.check_box :visited? %> <br>
+
+    <%= f.label :year_of_visit %>
+    <%= f.number_field :year_of_visit %> <br>
+
+    <%= f.label :recommend, 'Would you recommend this destination to others?' %>
+    <%= f.check_box :recommend? %> <br>
+
+    <%= f.label :revisit, 'Would you like to revisit this destination?' %>
+    <%= f.check_box :revisit? %> <br>
+
+    <%= f.label :notes, 'Notes:' %>  <br>
+    <%= f.text_area :notes %> <br>
+
+    <%= f.submit 'Submit' %>
+<% end %>

@@ -1,0 +1,22 @@
+<h2>Destination: <%= @destination.name %>, <%= @destination.country.name %></h2> <br>
+
+<% if @destination.visited? %> 
+    <strong> Last visited in <%= @destination.year_of_visit %> </strong> <br>
+
+    "Would recommend to others? - "
+    <%=  @destination.recommend? ? "Yes" : "No" %> <br>
+
+    "Book a return visit? - "
+    <%=  @destination.revisit? ? "Yes" : "No" %> <br>
+    Notes: <%=  @destination.notes%> <br>
+<% else %>
+    <strong> Not yet visited </strong> <br>
+<% end %><br>
+
+<%= link_to "Edit Destination", edit_destination_path(@destination) %> <br>
+<%= link_to "Delete Destination", destination_path(@destination), :method => :delete %>
+#list of do's with links
+    #edit/delete links
+
+#list of don'ts with links
+    #edit/delete links
