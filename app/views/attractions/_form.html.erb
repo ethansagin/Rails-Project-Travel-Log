@@ -1,0 +1,23 @@
+<%= form_for [destination, attraction] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :type 'Type of Attraction: '%>
+    <%= f.text_field :type %>  
+
+    <%= f.label :recommend %>
+    <%= f.check_box :recommend %>  
+
+    <%= f.label :url, 'Website: ' %>
+    <%= f.text_field :url %>
+
+    <%= f.submit 'Add Attraction' %>
+
+  
+
+    t.string "url"
+    t.string "type"
+    t.boolean "recommend"
+    t.string "comments"
+
+<% end %>
