@@ -15,6 +15,7 @@ class AttractionsController < ApplicationController
     end
 
     def show
+        set_attraction
     end
 
     def edit
@@ -30,6 +31,10 @@ class AttractionsController < ApplicationController
 
     def set_destination
         @destination = current_user.destinations.find_by(id: params[:destination_id])
+    end
+
+    def set_attraction
+        @attraction = @destination.attractions.find_by(id: params[:id])
     end
 
     def attraction_params
