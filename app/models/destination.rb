@@ -1,7 +1,7 @@
 class Destination < ApplicationRecord
     belongs_to :user, inverse_of: :destinations
     belongs_to :country
-    has_many :destinations
+    has_many :attractions
 
     accepts_nested_attributes_for :country
 
