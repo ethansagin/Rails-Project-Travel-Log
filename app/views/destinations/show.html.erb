@@ -1,37 +1,42 @@
-<h2>Destination: <%= @destination.name %>, <%= @destination.country.name %></h2> <br>
+<div>
+    <h2>Destination: <%= @destination.name %>, <%= @destination.country.name %></h2> <br>
 
-<% if @destination.visited? %> 
-    <strong> Last visited in <%= @destination.year_of_visit %> </strong> <br>
+    <% if @destination.visited? %> 
+        <strong> Last visited in <%= @destination.year_of_visit %> </strong> <br>
 
-    "Would recommend to others? - "
-    <%=  @destination.recommend? ? "Yes" : "No" %> <br>
+        "Would recommend to others? - "
+        <%=  @destination.recommend? ? "Yes" : "No" %> <br>
 
-    "Book a return visit? - "
-    <%=  @destination.revisit? ? "Yes" : "No" %> <br>
-    Notes: <%=  @destination.notes%> <br>
-<% else %>
-    <strong> Not yet visited </strong> <br>
-<% end %><br>
+        "Book a return visit? - "
+        <%=  @destination.revisit? ? "Yes" : "No" %> <br>
+        Notes: <%=  @destination.notes%> <br>
+    <% else %>
+        <strong> Not yet visited </strong> <br>
+    <% end %><br>
 
-<%= link_to "Edit Destination", edit_destination_path(@destination) %> <br>
-<%= link_to "Delete Destination", destination_path(@destination), :method => :delete %> <br>
+    <%= link_to "Edit Destination", edit_destination_path(@destination) %> <br>
+    <%= link_to "Delete Destination", destination_path(@destination), :method => :delete %> <br>
+</div> <br>
 
-<h3>Dos and Don'ts of <%= @destination.name %></h3>
 
-<% if !@destination.attractions.recommended.empty? %>
-    <h4>Dos</h4>
+<div>
+    <h3>Attractions of <%= @destination.name %></h3>
 
-    <% @destination.attractions.recommended.each do |attraction| %>
-        <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+    <% if !@destination.attractions.recommended.empty? %>
+        <h4>Recommended</h4>
+
+        <% @destination.attractions.recommended.each do |attraction| %>
+            <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+        <% end %>
     <% end %>
-<% end %>
 
-<% if !@destination.attractions.not_recommended.empty? %>
-    <h4>Don'ts</h4>
+    <% if !@destination.attractions.not_recommended.empty? %>
+        <h4>Not recommended</h4>
 
-    <% @destination.attractions.not_recommended.each do |attraction| %>
-        <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+        <% @destination.attractions.not_recommended.each do |attraction| %>
+            <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+        <% end %>
     <% end %>
-<% end %>
 
-<%= link_to 'Add Attraction', new_destination_attraction_path(@destination) %>
+    <%= link_to 'Add Attraction', new_destination_attraction_path(@destination) %>
+</div>
