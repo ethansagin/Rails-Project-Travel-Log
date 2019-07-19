@@ -1,5 +1,12 @@
 <h2>Welcome, <%= @user.name %>!</h2>
 
+<strong>To see all destinations from a given country: </strong>
+
+<%= form_tag(destinations_path, method: :get) do %>
+    <%= collection_select :destination, :country_id, Country.all, :id, :name, include_blank: true %>
+    <%= submit_tag 'Search' %>
+<% end %>
+
 <% if !@destinations.visited.empty? %>
     <div>
         <h3>Places I Have Visited</h3>
