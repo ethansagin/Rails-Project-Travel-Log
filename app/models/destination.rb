@@ -1,8 +1,11 @@
 class Destination < ApplicationRecord
     belongs_to :user, inverse_of: :destinations
     belongs_to :country
+    has_many :destinations
 
     accepts_nested_attributes_for :country
+
+    validates :name, presence: true, uniqueness: true
 
     scope :visited, -> { where(visited: true) }
     scope :not_visited, -> { where(visited: false) }    

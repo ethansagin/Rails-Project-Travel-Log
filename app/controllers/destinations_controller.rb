@@ -11,8 +11,12 @@ class DestinationsController < ApplicationController
     end
 
     def create
-        @destination = @user.destinations.create(destination_params)
-        redirect_to root_path
+        @destination = @user.destinations.new(destination_params)
+        if @destination.save
+            redirect_to root_path
+        else
+            render :new
+        end
     end
 
     def show
@@ -25,8 +29,11 @@ class DestinationsController < ApplicationController
 
     def update
         set_destination
-        @destination.update(destination_params)
-        redirect_to destination_path(@destination)
+        if @destination.update(destination_params)
+            redirect_to destination_path(@destination)
+        else
+            render :edit
+        end
     end
 
     def destroy

@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   root 'destinations#index'
 
   resources :users do
-    resources :destinations, only: [:create]
+    resources :destinations, only: [:create, :update]
   end
 
-  resources :destinations
+  resources :destinations do
+    resources :dos_and_donts
+  end
 
 end
