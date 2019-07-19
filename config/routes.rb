@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :destinations do
-    resources :dos_and_donts
+    resources :attractions
   end
 
 end
