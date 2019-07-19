@@ -2,7 +2,13 @@ class DestinationsController < ApplicationController
     before_action :authenticate_user!, :set_user
 
     def index
-        @destinations = @user.destinations
+        binding.pry
+        if params.has_key?(:destination) && !params[:destination][:country_id].empty?
+            search = params[:destination][:country_id]
+            @destinations = @user.destinations.where(country_id: search)
+        else
+            @destinations = @user.destinations
+        end
     end
 
     def new
