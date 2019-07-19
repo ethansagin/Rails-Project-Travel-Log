@@ -11,13 +11,13 @@
     <%= f.label :url, 'Website: ' %>
     <%= f.text_field :url %>
 
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>  
+
     <%= f.submit 'Add Attraction' %>
 
   
 
-    t.string "url"
-    t.string "type"
-    t.boolean "recommend"
-    t.string "comments"
+
 
 <% end %>
