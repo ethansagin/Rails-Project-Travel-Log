@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_151949) do
   create_table "attractions", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.string "type"
+    t.string "kind_of_attraction"
     t.boolean "recommend"
     t.string "comments"
     t.integer "destination_id"

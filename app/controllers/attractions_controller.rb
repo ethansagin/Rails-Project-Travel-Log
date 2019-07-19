@@ -45,7 +45,7 @@ class AttractionsController < ApplicationController
         params.require(:attraction).permit(
             :name,
             :url,
-            :type,
+            :kind_of_attraction,
             :recommend,
             :comments
         )
