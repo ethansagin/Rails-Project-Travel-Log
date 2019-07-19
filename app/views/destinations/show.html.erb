@@ -18,16 +18,20 @@
 
 <h3>Dos and Don'ts of <%= @destination.name %></h3>
 
-<h4>Dos</h4>
+<% if !@destination.attractions.recommended.empty? %>
+    <h4>Dos</h4>
 
-<% @destination.attractions.recommended.each do |attraction| %>
-    <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+    <% @destination.attractions.recommended.each do |attraction| %>
+        <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+    <% end %>
 <% end %>
 
-<h4>Don'ts</h4>
+<% if !@destination.attractions.not_recommended.empty? %>
+    <h4>Don'ts</h4>
 
-<% @destination.attractions.not_recommended.each do |attraction| %>
-    <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+    <% @destination.attractions.not_recommended.each do |attraction| %>
+        <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
+    <% end %>
 <% end %>
 
 <%= link_to 'Add Attraction', new_destination_attraction_path(@destination) %>
