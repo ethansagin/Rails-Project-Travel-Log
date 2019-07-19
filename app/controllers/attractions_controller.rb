@@ -19,6 +19,7 @@ class AttractionsController < ApplicationController
     end
 
     def edit
+        set_attraction
     end
 
     def update
