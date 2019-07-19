@@ -4,10 +4,10 @@
     <% if @destination.visited? %> 
         <strong> Last visited in <%= @destination.year_of_visit %> </strong> <br>
 
-        "Would recommend to others? - "
+        Would recommend to others? - 
         <%=  @destination.recommend? ? "Yes" : "No" %> <br>
 
-        "Book a return visit? - "
+        Book a return visit? - 
         <%=  @destination.revisit? ? "Yes" : "No" %> <br>
         Notes: <%=  @destination.notes%> <br>
     <% else %>
@@ -36,7 +36,7 @@
         <% @destination.attractions.not_recommended.each do |attraction| %>
             <%= link_to attraction.name, destination_attraction_path(@destination, attraction) %> <br>
         <% end %>
-    <% end %>
+    <% end %> <br>
 
     <%= link_to 'Add Attraction', new_destination_attraction_path(@destination) %>
 </div>

@@ -1,13 +1,16 @@
 <h2>Attraction: <%= @attraction.name %></h2>
-<strong>Visited during trip to <%= @destination.name %>, <%= @destination.country.name %></strong> <br>
 
-Kind of attraction: <%= @attraction.kind_of_attraction %> <br>
+<div>
+    <strong>Visited during trip to <%= @destination.name %>, <%= @destination.country.name %></strong> <br>
 
-Would recommend to others? - <%=  @attraction.recommend? ? "Yes" : "No" %> <br>
+    Kind of attraction: <%= @attraction.kind_of_attraction %> <br>
 
-Website: <%= @attraction.url %> <br>
+    Would recommend to others? - <%=  @attraction.recommend? ? "Yes" : "No" %> <br>
 
-Comments: <%= @attraction.comments %> <br>
+    Website: <%= @attraction.url %> <br>
+
+    Comments: <%= @attraction.comments %> <br>
+</div> <br>
 
 <%= link_to 'Edit Attraction', edit_destination_attraction_path(@destination, @attraction) %> <br>
 <%= link_to 'Delete Attraction', destination_attraction_path(@destination, @attraction), method: :delete %>

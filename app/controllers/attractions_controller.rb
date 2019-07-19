@@ -23,6 +23,12 @@ class AttractionsController < ApplicationController
     end
 
     def update
+        set_attraction
+        if @attraction.update(attraction_params)
+            redirect_to destination_path(@destination)
+        else
+            render :edit
+        end
     end
 
     def destroy
