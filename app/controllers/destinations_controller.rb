@@ -12,6 +12,8 @@ class DestinationsController < ApplicationController
 
     def create
         @destination = @user.destinations.new(destination_params)
+        @destination.country = Country.find_by(params[:country_id]) if @destination.country.blank?
+        binding.pry
         if @destination.save
             redirect_to root_path
         else
@@ -60,6 +62,7 @@ class DestinationsController < ApplicationController
             :recommend,
             :revisit,
             :notes,
+            :country_id,
             country_attributes: [
                 :name
             ]

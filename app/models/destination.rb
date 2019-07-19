@@ -11,8 +11,11 @@ class Destination < ApplicationRecord
     scope :not_visited, -> { where(visited: false) }    
 
     def country_attributes=(att)
-        self.country = Country.find_or_create_by(name: att[:name])
-        self.country.update(att)
+        binding.pry
+        unless att[:name].blank?
+            self.country = Country.find_or_create_by(name: att[:name])
+            self.country.update(att)
+        end
     end
 
 end

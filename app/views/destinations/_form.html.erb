@@ -18,8 +18,10 @@
     <%= f.text_field :name %> <br>
 
     <%= f.fields_for :country, destination.country do |c| %>
-        <%= c.label :name, 'Country Name' %>
-        <%= c.text_field :name %> <br>
+      <%= c.label :name, 'Country Name' %>
+      <%= c.text_field :name %>
+
+      <%= c.collection_select :id, Country.all, :id, :name, include_blank: true %> <br>
     <% end %>
         
     <%= f.label :visited, 'Visited?' %>

@@ -6,7 +6,7 @@ class AttractionsController < ApplicationController
     end
 
     def create
-        @attraction = @destination.attractions.new(attraction_params)
+        @attraction = @destination.attractions.build(attraction_params)
         if @attraction.save
             redirect_to destination_path(@destination)
         else
@@ -26,6 +26,9 @@ class AttractionsController < ApplicationController
     end
 
     def destroy
+        set_attraction
+        @attraction.delete
+        redirect_to destination_path(@destination)
     end
 
     private
