@@ -12,7 +12,7 @@
         <h3>Places I Have Visited</h3>
 
         <% @destinations.visited.each do |d| %>
-            <%= link_to d.name, destination_path(d) %> <br>
+            <%= link_to d.name, destination_path(d) %>, <%= d.country.name %> <br>
         <% end %> <br>
     <div>
 <% end %>
@@ -22,7 +22,7 @@
         <h3>Places I Want To Visit</h3>
 
         <% @destinations.not_visited.each do |d| %>
-            <%= link_to d.name, destination_path(d) %> <br>
+            <%= link_to d.name, destination_path(d) %>, <%= d.country.name %> <br>
         <% end %> <br>
     <div>
 <% end %>
