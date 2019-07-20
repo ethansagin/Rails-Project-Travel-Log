@@ -2,5 +2,5 @@ class Country < ApplicationRecord
     has_many :destinations
     has_many :users, through: :destinations
 
-    validates :name, uniqueness: true
+    validates :name, presence: true, uniqueness: true
 end

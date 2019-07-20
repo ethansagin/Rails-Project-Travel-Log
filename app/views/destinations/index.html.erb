@@ -1,11 +1,11 @@
 <h2>Welcome, <%= @user.name %>!</h2>
 
-<strong>To see all destinations from a given country: </strong>
+<strong>To see only destinations from a given country: </strong>
 
 <%= form_tag(destinations_path, method: :get) do %>
     <%= collection_select :destination, :country_id, Country.all, :id, :name, include_blank: true %>
     <%= submit_tag 'Search' %>
-<% end %>
+<% end %> <br>
 
 <% if !@destinations.visited.empty? %>
     <div>
