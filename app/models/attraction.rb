@@ -3,7 +3,7 @@ class Attraction < ApplicationRecord
 
     validates :name, presence: true, uniqueness: true
 
-    scope :recommended, -> { where(recommend: true) }
-    scope :not_recommended, -> { where(recommend: false) } 
+    scope :recommended, -> { where(recommend: true).order('name asc') }
+    scope :not_recommended, -> { where(recommend: false).order('name asc') } 
 
 end
