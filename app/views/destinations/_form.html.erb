@@ -13,15 +13,15 @@
   </div>
 <% end %>
 
-<%= form_for [user, destination] do |f| %>
+<%= form_for destination do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %> <br>
 
-    <%= f.fields_for :country, destination.country do |c| %>
-      <%= c.label :name, 'Country Name' %>
-      <%= c.text_field :name %>
+    Select Country<%= f.collection_select :country_id, Country.all, :id, :name, include_blank: true %> <br>
 
-      <%= c.collection_select :id, Country.all, :id, :name, include_blank: true %> <br>
+    <%= f.fields_for :country, destination.country do |c| %>
+      <%= c.label :name, 'OR Add a New Country' %>
+      <%= c.text_field :name %> <br>
     <% end %>
         
     <%= f.label :visited, 'Visited?' %>

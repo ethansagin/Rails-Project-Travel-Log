@@ -8,7 +8,7 @@ class Destination < ApplicationRecord
     validates :name, presence: true
 
     scope :visited, -> { where(visited: true).order('name asc') }
-    scope :not_visited, -> { where(visited: false).order('name asc') }    
+    scope :not_visited, -> { where(visited: false).order('name asc') }
 
     def country_attributes=(att)
         if !att[:name].blank? && att[:id].blank?

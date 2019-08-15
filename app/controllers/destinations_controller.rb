@@ -17,6 +17,7 @@ class DestinationsController < ApplicationController
 
     def create
         @destination = @user.destinations.new(destination_params)
+
         if @destination.save
             redirect_to root_path
         else
@@ -34,7 +35,9 @@ class DestinationsController < ApplicationController
 
     def update
         set_destination
-        if @destination.update(destination_params)
+        dp = destination_params
+        dp[:country_attributes][:id] = ""
+        if @destination.update(dp)
             redirect_to destination_path(@destination)
         else
             render :edit

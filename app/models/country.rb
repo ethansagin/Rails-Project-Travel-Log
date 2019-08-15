@@ -3,4 +3,5 @@ class Country < ApplicationRecord
     has_many :users, through: :destinations
 
     validates :name, presence: true, uniqueness: true
+    
 end

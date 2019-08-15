@@ -8,12 +8,9 @@ Rails.application.routes.draw do
   
   root 'destinations#index'
 
-  resources :users do
-    resources :destinations, only: [:create, :update]
-  end
-
   resources :destinations do
     resources :attractions, only: [:new, :create, :show, :edit, :update, :destroy]
   end
+
 
 end
